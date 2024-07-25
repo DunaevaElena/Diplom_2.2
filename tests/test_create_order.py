@@ -46,7 +46,7 @@ class TestCreateOrder:
             "message": "Ingredient ids must be provided"
         }
 
-    @allure.title('Создание заказа без ингредиентов неавторизованным пользователем.')
+    @allure.title('Создание заказа без ингредиентов неавторизованным пользователем')
     def test_create_order_without_ingredients_for_non_authorized_user(self):
         payload = {
             'ingredients': ['']

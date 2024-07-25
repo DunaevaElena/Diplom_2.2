@@ -25,7 +25,7 @@ class TestGetUserOrders:
             "totalToday": total_today
         }
 
-    @allure.title('Получение списка заказов неавторизированного пользователя.')
+    @allure.title('Получение списка заказов неавторизированного пользователя')
     def test_get_orders_for_non_authorized_user(self):
         response = requests.get(f'{Url.BASE_URL}{Endpoints.GET_ORDERS}')
 

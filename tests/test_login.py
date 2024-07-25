@@ -41,7 +41,7 @@ class TestLoginUser:
         assert response.status_code == 401 and response.text == \
                '{"success":false,"message":"email or password are incorrect"}'
 
-    @allure.title('Авторизация с некорректным {password}.')
+    @allure.title('Авторизация с некорректным {password}')
     @pytest.mark.parametrize('password', ['faker.password()', ' '], ids=['incorrect password', 'empty password'])
     def test_login_user_correct_email_incorrect_password(self, register_new_user_return_response, password):
         faker = Faker()
