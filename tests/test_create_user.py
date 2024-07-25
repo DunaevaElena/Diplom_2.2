@@ -23,7 +23,7 @@ class TestCreateUser:
                 "refreshToken": response.json()["refreshToken"]
             }
 
-    @allure.title('Повторная регистрация существующего пользователя')
+    @allure.title('Повторная регистрация существующего пользователя.')
     def test_register_created_user(self, register_new_user_return_response
 ):
         email, password, name, _ = register_new_user_return_response

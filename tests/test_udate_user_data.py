@@ -6,7 +6,7 @@ from faker import Faker
 from endpoints import Url, Endpoints
 
 
-@allure.suite('Изменение данных пользователя')
+@allure.suite('Изменение данных пользователя.')
 class TestUpdateUserData:
 
     @allure.title('Изменение данных авторизованного пользователя')

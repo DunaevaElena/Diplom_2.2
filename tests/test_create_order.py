@@ -56,7 +56,7 @@ class TestCreateOrder:
         assert response.status_code == 400 and response.text == \
                '{"success":false,"message":"Ingredient ids must be provided"}'
 
-    @allure.title('Ошибка при создании заказа с невалидным хешем ингредиента')
+    @allure.title('Ошибка при создании заказа с невалидным хешем ингредиента.')
     def test_create_order_wrong_ingredient_ids(self, register_new_user_return_response):
         email, password, name, response = register_new_user_return_response
         access_token = response.json()['accessToken']

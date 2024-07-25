@@ -7,7 +7,7 @@ from endpoints import Url, Endpoints
 @allure.suite('Получение списка заказов пользователя')
 class TestGetUserOrders:
 
-    @allure.title('Получение списка заказов авторизованного пользователя')
+    @allure.title('Получение списка заказов авторизованного пользователя.')
     def test_get_orders_for_authorized_user(self, register_new_user_return_response):
         email, password, name, response = register_new_user_return_response
         access_token = response.json()['accessToken']

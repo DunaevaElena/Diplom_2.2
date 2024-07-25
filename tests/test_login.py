@@ -10,7 +10,7 @@ from endpoints import Url, Endpoints
 @allure.suite('Авторизация пользователя')
 class TestLoginUser:
 
-    @allure.title('Авторизация существующего пользователя')
+    @allure.title('Авторизация существующего пользователя.')
     def test_login_registered_user_success(self, register_new_user_return_response):
         data = register_new_user_return_response
         payload = {
