@@ -9,7 +9,7 @@ from endpoints import Url, Endpoints
 @allure.suite('Создание нового пользователя')
 class TestCreateUser:
 
-    @allure.title('Успешное создание пользователя')
+    @allure.title('Успешное создание пользователя.')
     def test_create_new_user(self, register_new_user_return_response):
             email, password, name, response = register_new_user_return_response
 

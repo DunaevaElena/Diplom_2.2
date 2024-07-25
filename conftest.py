@@ -16,7 +16,7 @@ def register_new_user_return_response():
 
         yield user_data[0], user_data[1], user_data[2], response
 
-    with allure.step('Получение токена созданного пользователя'):
+    with allure.step('Получение токена созданного пользователя.'):
         access_token = response.json()["accessToken"]
 
     with allure.step('Удаление созданного пользователя'):

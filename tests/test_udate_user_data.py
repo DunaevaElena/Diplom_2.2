@@ -32,7 +32,7 @@ class TestUpdateUserData:
             }
         }
 
-    @allure.title('Изменение данных для не авторизованного пользователя')
+    @allure.title('Изменение данных для не авторизованного пользователя.')
     @pytest.mark.parametrize('changed_data', ['{"email": fake.email(), "password": data[1],"name": data[2]}',
                                               '{"email": data[0], "password": fake.password(), "name": data[2]}',
                                               '{"email": data[0], "password":data[1], "name":fake.name()}'],
