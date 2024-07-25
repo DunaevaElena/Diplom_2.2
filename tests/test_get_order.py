@@ -9,16 +9,21 @@ class TestGetUserOrders:
 
     @allure.title('Получение списка заказов авторизованного пользователя')
     def test_get_orders_for_authorized_user(self, register_new_user_return_response):
-        data = register_new_user_return_response
-        access_token = data.json()['accessToken']
+        email, password, name, response = register_new_user_return_response
+        access_token = response.json()['accessToken']
         headers = {"Authorization": f"{access_token}"}
+
         response = requests.get(f'{Url.BASE_URL}{Endpoints.GET_ORDERS}', headers=headers)
         orders = response.json()['orders']
         total = response.json()['total']
         total_today = response.json()['totalToday']
 
-        assert response.status_code == 200 and response.text == \
-               f'{{"success":true,"orders":{orders},"total":{total},"totalToday":{total_today}}}'
+        assert response.status_code == 200 and response.json() == {
+            "success": True,
+            "orders": orders,
+            "total": total,
+            "totalToday": total_today
+        }
 
     @allure.title('Получение списка заказов неавторизированного пользователя')
     def test_get_orders_for_non_authorized_user(self):

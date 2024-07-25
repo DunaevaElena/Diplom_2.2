@@ -11,8 +11,8 @@ from endpoints import Url, Endpoints
 class TestLoginUser:
 
     @allure.title('Авторизация существующего пользователя')
-    def test_login_registered_user_success(self, register_new_user_return_login_and_password):
-        data = register_new_user_return_login_and_password
+    def test_login_registered_user_success(self, register_new_user_return_response):
+        data = register_new_user_return_response
         payload = {
             "email": data[0],
             "password": data[1]
@@ -29,10 +29,10 @@ class TestLoginUser:
 
     @allure.title('Авторизация с некорректным {email}')
     @pytest.mark.parametrize('email', ['faker.email()', ' '], ids=['incorrect_email', 'empty_email'])
-    def test_login_user_incorrect_email_and_correct_password(self, register_new_user_return_login_and_password,
+    def test_login_user_incorrect_email_and_correct_password(self, register_new_user_return_response,
                                                              email):
         faker = Faker()
-        data = register_new_user_return_login_and_password
+        data = register_new_user_return_response
         payload = {
             "email": email,
             "password": data[1]
@@ -43,9 +43,9 @@ class TestLoginUser:
 
     @allure.title('Авторизация с некорректным {password}')
     @pytest.mark.parametrize('password', ['faker.password()', ' '], ids=['incorrect password', 'empty password'])
-    def test_login_user_correct_email_incorrect_password(self, register_new_user_return_login_and_password, password):
+    def test_login_user_correct_email_incorrect_password(self, register_new_user_return_response, password):
         faker = Faker()
-        data = register_new_user_return_login_and_password
+        data = register_new_user_return_response
         payload = {
             "email": data[0],
             "password": password
